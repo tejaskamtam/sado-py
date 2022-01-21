@@ -34,3 +34,4 @@ Debian/Ubuntu users use
 ```
 pip3 install -r reqs.txt
 ```
+FInally, insert your bot token in the config.py file
