@@ -26,20 +26,26 @@ class Bot(discord.Client):
             return
     
     async def on_member_join(self, user):
-        opts = ["{user.mention} has joined among us!","Hey {user.mention}! Welcome to the Unswallowed Committee",
-                "{user.mention} joined the server?! LETS GO!!!","{user.mention} joined the server! Salamat, Thanks!"]
-        ancmt = bot.get_channel(config.ancmtid)
+        mention = user.mention
+        opts = [mention + " has joined among us!","Hey " + mention + "! Welcome to the Unswallowed Committee",
+                mention + " joined the server?! LETS GO!!!", mention + " joined the server! Salamat, Thanks!"]
+        ancmt = bot.get_channel(self, config.ancmtid)
         msg = ancmt.send(random.choice(opts))
         await msg
         await msg.add_reaction('<:peepoUpvote:931009571932209152>')
     
     async def on_member_remove(self, user):
-        opts = ["{user.mention} fell down a hole","{user.mention} went to play with some other friends",
-                "All my homies hate {user.mention} for leaving the server","{user.mention} bites the dust. F"]
-        ancmt = bot.get_channel(config.ancmtid)
+        mention = user.mention
+        opts = [mention + " fell down a hole", mention + " went to play with some other friends",
+                "All my homies hate " + mention + " for leaving the server",mention + " bites the dust. F"]
+        ancmt = bot.get_channel(self, config.ancmtid)
         msg = ancmt.send(random.choice(opts))
         await msg
         await msg.add_reaction('<:downvote:931014167559798835>')
+        
 
-client = Bot()
+intents = discord.Intents.default()
+intents.members = True
+
+client = Bot(intents=intents)
 client.run(config.token)
