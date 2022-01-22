@@ -1,5 +1,5 @@
 # sado-py
-A Python version of sado (Aarian-A/sado-bot)
+A Python version of sado (Aarian-A/sado-bot): a discord bot to help server admins customize server attributes and help interact with their members more effectively.
 
 ### Setup
 Install python 3.x, and set up a virtual environment in the repository you want to work in
